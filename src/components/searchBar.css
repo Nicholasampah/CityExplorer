@@ -1,0 +1,39 @@
+.input-wrapper {
+  width: 100%;
+  max-width: 500px; /* Set a max width for the search bar */
+  margin: 20px auto; /* Center the search bar */
+  position: relative;
+}
+
+ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  max-width: 600px; /* Limit the width of the list */
+  margin: 0 auto; /* Center the list */
+  column-count: 2; /* Split the list into two columns */
+  column-gap: 20px; /* Add space between columns */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+li {
+  margin: 10px 0; /* Add some spacing between list items */
+  border-bottom: 1px dotted #ccc; /* Add a dotted line to separate items */
+  padding-bottom: 5px;
+}
+
+#search-icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  padding-left: 35px; /* Space for search icon */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

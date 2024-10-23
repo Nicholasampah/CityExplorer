@@ -46,7 +46,7 @@ const Navbar = () => {
                   <Link to="/Contact"className='nav-links' onClick={closeMobileMenu}>Contact</Link>
                   </li>
                   <li>
-                    <Link to="/Explorer"className='nav-links-mobile' onClick={closeMobileMenu}>Get Exploring</Link> 
+                    <Link to="/"className='nav-links-mobile' onClick={closeMobileMenu}>Get Exploring</Link> 
                   </li>
                 </ul>
                 {button && <Button buttonStyle='btn--outline'>Get Exploring</Button>}

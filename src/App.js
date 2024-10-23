@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 
 
+
 const App = () => {
   return (
     <>
@@ -19,8 +20,10 @@ const App = () => {
 
       </Routes>  
     </Router>
+
+    
     </>
-  )
-}
+  );
+};
 
 export default App;

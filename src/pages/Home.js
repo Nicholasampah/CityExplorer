@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from '../components/searchBar';
 
-const Homepage = () => {
+
+const Home = () => {
   return (
-    <div>This is the home page</div>
+    <div className="App">
+      <h1>Explore various destinations around the world</h1>
+      <SearchBar />
+    </div>
   )
 }
 
-export default Homepage
+export default Home;
