@@ -1,0 +1,45 @@
+<!--NAVIGATION MENU -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Explorer</title>
+    <link rel="stylesheet" href="style.css" />
+    <!--stylesheet-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+          CITYEXPO
+          <i class="fas fa-route" style="font-size: 48px; color: red"></i>
+        </a>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i id="menu-icon" class="fas fa-bars"></i>
+        </div>
+        <ul id="nav-menu" class="nav-menu">
+          <li class="nav-item">
+            <a href="/" class="nav-links">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Services" class="nav-links">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Contact" class="nav-links">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="/" class="nav-links-mobile">Get Exploring</a>
+          </li>
+        </ul>
+        <a href="/" class="btn--outline">Get Exploring</a>
+      </div>
+    </nav>
+  </body>
+</html>
