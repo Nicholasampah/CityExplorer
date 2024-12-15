@@ -8,6 +8,7 @@ const Home = () => {
       <h1>Explore various destinations around the world</h1>
       <SearchBar />
     </div>
+
   )
 }
 
