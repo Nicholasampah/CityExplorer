@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => { // Ensures the DOM is full
 
       // Navigation function
       function navigateToExplorer(name, country) { // Accepts the city name and country as parameters
-        const url = `/Explorer.html?city=${encodeURIComponent(
+        const url = `Explorer.html?city=${encodeURIComponent(
           name
         )}&country=${encodeURIComponent(country)}`; // Constructs a URL with the encoded parameters
         console.log(`Navigating to: ${url}`); // Logs the URL for debugging purposes
