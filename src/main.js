@@ -1,3 +1,17 @@
+import API_KEYS from "./keys.js"; //Importing API keys
+import{ loadGoogleMapsAPI} from "./google_maps.js"; 
+
+
+// Fetching the navigation menu 
+fetch("components/nav.html") // Sends a request to fetch the HTML content of the navigation bar
+  .then((response) => response.text()) // Converts the response to text format
+  .then((data) => {
+    document.getElementById("navbar").innerHTML = data; // Inserts the fetched HTML into the element with id "navbar"
+  })
+  .catch((error) => console.error("Error loading navbar:", error)); // Logs an error if the fetch request fails
+
+
+
 const detailsContainer = document.getElementById("details");
 
 const params = new URLSearchParams(window.location.search);
@@ -28,18 +42,30 @@ async function fetchDetails(city, country) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ country }),
         }).then((res) => res.json()),
+
         fetch("https://countriesnow.space/api/v0.1/countries/currency", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ country }),
         }).then((res) => res.json()),
+
+        fetch(
+          `https://google-map-places.p.rapidapi.com/maps/api/geocode/json?address=${encodeURIComponent(
+            city
+          )},${encodeURIComponent(
+            country
+          )}&language=en&region=en&result_type=administrative_area_level_1&location_type=APPROXIMATE`,
+          {
+            method: "GET",
+            headers: {
+              "x-rapidapi-key": `${API_KEYS.RAPID_API_KEY}`,
+              "x-rapidapi-host": "google-map-places.p.rapidapi.com",
+            },
+          }
+        ).then((res) => res.json()),
       ]
     );
 
-    //  API response
-    if (!populationData || !populationData.data) {
-      throw new Error("Population data not found");
-    }
     // Validate and process responses
     if (!populationData.data) throw new Error("Population data not found.");
     if (!flagData.data) throw new Error("Flag data not found.");
@@ -64,6 +90,14 @@ async function fetchDetails(city, country) {
    <div id="map"></div>
    `;
 
+   // Initialize map if location is available
+   if (mapLocation) {
+    loadGoogleMapsAPI().then(() => initializeMap(mapLocation));
+  } else {
+    document.getElementById("map").innerHTML =
+      "<p>Map data not available.</p>";
+  }
+
   } catch (error) {
     console.error("Error fetching details:", error);
     detailsContainer.innerHTML =
@@ -71,3 +105,16 @@ async function fetchDetails(city, country) {
   }
 }
 
+// Function to initialize Google Map
+function initializeMap(location) {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: location,
+    zoom: 12,
+  });
+
+  new google.maps.Marker({
+    position: location,
+    map: map,
+    title: `${city}, ${country}`,
+  });
+}
