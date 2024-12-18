@@ -1,0 +1,70 @@
+<!--NAVIGATION MENU -->
+<!DOCTYPE html>
+
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Explorer</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!--stylesheet-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+          CITYEXPO
+          <i class="fas fa-route" style="font-size: 48px; color: red"></i>
+        </a>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i id="menu-icon" class="fas fa-bars"></i>
+        </div>
+        <ul id="nav-menu" class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-links">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-links">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-links">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html" class="nav-links-mobile">Get Exploring</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <script>
+      // Wait for the DOM to load before attaching the function
+      document.addEventListener("DOMContentLoaded", () => {
+        function toggleMenu() {
+          const navMenu = document.getElementById("nav-menu");
+          const menuIcon = document.getElementById("menu-icon");
+
+          // Toggle 'active' class on nav-menu
+          navMenu.classList.toggle("active");
+
+          // Toggle menu icon between bars and times (close icon)
+          if (navMenu.classList.contains("active")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+          } else {
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+          }
+        }
+
+        // Assign the function to the menu-icon
+        const menuIcon = document.querySelector(".menu-icon");
+        menuIcon.addEventListener("click", toggleMenu);
+      });
+    </script>
+  </body>
+</html>

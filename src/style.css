@@ -251,5 +251,13 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start; /* Aligns items to the top */
+  align-items: flex-start; 
+}
+
+.weather-widget {
+  flex: 0 0 300px; /* Sets a fixed width for the weather widget */
+}
+
+#openweathermap-widget-11 {
+margin-top: 20px;
 }

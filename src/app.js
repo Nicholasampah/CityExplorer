@@ -1,5 +1,5 @@
 // Fetching the navigation menu 
-fetch("components/nav.html") // Sends a request to fetch the HTML content of the navigation bar
+fetch("nav.html") // Sends a request to fetch the HTML content of the navigation bar
   .then((response) => response.text()) // Converts the response to text format
   .then((data) => {
     document.getElementById("navbar").innerHTML = data; // Inserts the fetched HTML into the element with id "navbar"
